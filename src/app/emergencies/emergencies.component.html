@@ -1,0 +1,62 @@
+<div>
+  <h1>Emergencies</h1>
+
+  <p-table [value]="emergencies" [rowHover]="true">
+    <ng-template pTemplate="caption">
+      <div class="table-header">
+        List of Emergecies
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>
+          <div class="p-ai-center">
+            ID
+          </div>
+        </th>
+        <th>
+          <div class="p-ai-center">
+            Time
+          </div>
+        </th>
+        <th>
+          <div class="p-ai-center">
+            Device SN
+          </div>
+        </th>
+        <th>
+          <div class="p-ai-center">
+            Holder
+          </div>
+        </th>
+
+
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-em>
+      <tr class="p-selectable-row">
+        <td>
+          <span class="p-column-title">ID</span>
+          {{em.emergencyId}}
+        </td>
+        <td>
+          <span class="p-column-title">Time</span>
+          <span class="image-text">{{em.emergencyReqTime | date: 'HH:MM'}}</span>
+        </td>
+        <td>
+          <span class="p-column-title">Device SN</span>
+          <span class="image-text">{{em.deviceId}}</span>
+        </td>
+        <td>
+          <span class="p-column-title">Holder</span>
+          {{em.holderName}}
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="8">No emergencies found.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
